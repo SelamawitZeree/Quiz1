@@ -1,0 +1,5 @@
+com/allied/hr/service/HrService.class
+com/allied/hr/model/Department.class
+com/allied/hr/MainApplication.class
+com/allied/hr/model/Employee.class
+com/allied/hr/repository/InMemoryDataStore.class

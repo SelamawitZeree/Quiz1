@@ -3,6 +3,7 @@ package com.allied.hr.repository;
 import com.allied.hr.model.Department;
 import com.allied.hr.model.Employee;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +15,9 @@ public class InMemoryDataStore {
 
     static {
         // Departments
-        Department sales       = new Department("31288741190182539912", "Sales");
-        Department marketing   = new Department("29274582650152771644", "Marketing");
-        Department engineering = new Department("29274599650152771609", "Engineering");
+        Department sales       = new Department(new BigInteger("31288741190182539912"), "Sales");
+        Department marketing   = new Department(new BigInteger("29274582650152771644"), "Marketing");
+        Department engineering = new Department(new BigInteger("29274599650152771609"), "Engineering");
 
         // Employees
         Employee michael = new Employee("000-11-1234", "Michael", "Philips",

@@ -1,12 +1,12 @@
 package com.allied.hr.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "employeeNo")
 public class Employee {
     private String employeeNo;
     private String firstName;
@@ -14,6 +14,7 @@ public class Employee {
     private LocalDate dateOfBirth;
     private LocalDate dateOfEmployment;
     private BigDecimal biweeklySalary;
+    @JsonIgnoreProperties("employees")
     private Department department;
 
     public Employee(String employeeNo, String firstName, String lastName, LocalDate dateOfBirth,

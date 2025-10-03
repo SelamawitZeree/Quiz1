@@ -1,19 +1,22 @@
 package com.allied.hr.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "departmentNo")
 public class Department {
-    private String departmentNo;     // very large numeric id → keep as String to preserve value exactly
+    private BigInteger departmentNo;     // very large numeric id → keep as String to preserve value exactly
     private String name;
+    @JsonIgnoreProperties("department")
     private Employee headOfDepartment;
+    @JsonIgnoreProperties("department")
     private List<Employee> employees = new ArrayList<>();
 
-    public Department(String departmentNo, String name) {
+    public Department(BigInteger departmentNo, String name) {
         this.departmentNo = departmentNo;
         this.name = name;
     }
@@ -26,8 +29,8 @@ public class Department {
     }
 
     // getters/setters
-    public String getDepartmentNo() { return departmentNo; }
-    public void setDepartmentNo(String departmentNo) { this.departmentNo = departmentNo; }
+    public BigInteger getDepartmentNo() { return departmentNo; }
+    public void setDepartmentNo(BigInteger departmentNo) { this.departmentNo = departmentNo; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
     public Employee getHeadOfDepartment() { return headOfDepartment; }
